@@ -1,16 +1,43 @@
 {
-    "node-lirc": {
-	    "commands": {
-    		"lircd": "lircd",
-    		"irrecord": "irrecord",
-    		"irsend": "irsend",
-    		"unbuffer": "unbuffer"
+    "bridge": {
+
+        "name": "Homebridge",
+        "username": "B8:27:EB:86:46:4E",
+        "port": 51826,
+        "pin": "031-45-154"
+    },
+
+    "description": "Bonbu_deZentral Automation Service",
+
+    "platforms": [],
+    "accessories": [{
+            "accessory": "Http",
+            "name": "Air-conditioner",
+            "switchHandling": "realtime",
+            "http_method": "GET",
+            "caption": "Stand",
+
+            "on_url": "localhost:8080/airconon",
+            "off_url": "localhost:8080/ariconoff",
+            "status_url": "",
+            "service": "Switch",
+            "brightnessHandling": "no",
+            "brightness_url": "",
+            "brightnesslvl_url": "",
+            "username": "",
+            "password": ""
         },
-	    "lirc_driver": "default",
-    	"lirc_conf": "/etc/lirc/lircd.conf",
-        "lirc_pid": "/var/run/lirc/lircd.pid",
-	    "device": "/dev/lirc0",
-    	"tmp_dir": "tmp/",
-    	"remote": "BONBU-Remote"
-	}
+        {
+            "accessory": "Http",
+            "name": "MainDoor",
+
+            "switchHandling": "realtime",
+            "http_method": "GET",
+            "caption": "Maindoor",
+
+            "on_url": "LOCALIPADDRESS:PORT/?HIGH",
+            "off_url": "LOCALIPADDRESS:PORT/?LOW",
+            "status_url": ""
+        }
+    ]
 }
