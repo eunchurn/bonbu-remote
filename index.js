@@ -1,28 +1,41 @@
 const lirc_node = require('lirc_node')
-
-var express = require('express');
-var app = express();
-
-app.get('/', function(req, res){
-  res.send('hello world');
-});
-
-app.listen(8080);
+const express = require('express');
+const app = express();
 
 lirc_node.init();
 console.log(lirc_node.remotes);
 
-const listenerId = lirc_node.addListener((data) => {
-    console.log(`Received ${data.key} from remote ${data.remote}`);
-    if (data.remote == 'bonbu-remote') {
-        lirc_node.irsend.send_once('bonbu-remote', data.key);
-        console.log(`Sending ${data.key} to remote Bonbu`);
-    }
+app.get('/', function (req, res) {
+    res.send('hello world');
 });
 
-setInterval(() => {
-    // console.log(`Sending ${data.key} to remote Bonbu`);
+app.get('/airconon', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
-        console.log("Sent bonbu-remote power command!");
-    });
-},2000)
+        res.send('on');
+    })
+});
+
+app.get('/airconoff', (req, res) => {
+    lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
+        res.send('on');
+    })
+});
+
+app.listen(8080);
+
+
+
+// const listenerId = lirc_node.addListener((data) => {
+//     console.log(`Received ${data.key} from remote ${data.remote}`);
+//     if (data.remote == 'bonbu-remote') {
+//         lirc_node.irsend.send_once('bonbu-remote', data.key);
+//         console.log(`Sending ${data.key} to remote Bonbu`);
+//     }
+// });
+
+// setInterval(() => {
+//     // console.log(`Sending ${data.key} to remote Bonbu`);
+//     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
+//         console.log("Sent bonbu-remote power command!");
+//     });
+// },2000)
