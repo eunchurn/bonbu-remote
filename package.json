@@ -8,6 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "gpio": "^0.2.10",
-    "node-lirc": "^0.0.4"
+    "lirc_node": "^0.0.4"
   }
 }
