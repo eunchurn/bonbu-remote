@@ -17,8 +17,8 @@
             "http_method": "GET",
             "caption": "Stand",
 
-            "on_url": "localhost:8080/airconon",
-            "off_url": "localhost:8080/ariconoff",
+            "on_url": "http://192.168.0.149:8080/airconon",
+            "off_url": "http://192.168.0.149:8080/ariconoff",
             "status_url": "",
             "service": "Switch",
             "brightnessHandling": "no",
