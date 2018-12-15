@@ -9,5 +9,8 @@
   "dependencies": {
     "gpio": "^0.2.10",
     "lirc_node": "^0.0.4"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
