@@ -8,3 +8,7 @@ lirc_node.addListener((data) => {
         console.log(`Sending ${data.key} to remote Bonbu`);
     }
 });
+
+setInterval(() => {
+    lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER');
+},2000)
