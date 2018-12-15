@@ -1,0 +1,9 @@
+{
+  "name": "bonbu-remote",
+  "version": "1.0.0",
+  "description": "Bonbu Air-conditioner remote control",
+  "main": "index.js",
+  "repository": "git@github.com:eunchurn/bonbu-remote.git",
+  "author": "Eunchurn Park <eunchurn.park@gmail.com>",
+  "license": "MIT"
+}
