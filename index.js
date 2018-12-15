@@ -1,16 +1,9 @@
-const SerialPort = require('serialport')
-const port = new SerialPort('/dev/ttyAMA0', {
-    baudRate: 9600
-})
+const nideLIRC = require('node-lirc');
 
-port.on('error', function (err) {
-    console.log('Error: ', err.message)
-})
+nodeLIRC.init();
 
-port.on('open', function () {
-    // open logic
-})
-
-port.on('data', function (data) {
-    console.log('Data:', data)
-})
+nodeLIRC.on('stdout', (event) => {
+	console.log(event.instructions);
+	if (event.eventName == 'EVENT_BUTTON_NAME')
+		nodeLIRC.writeLine('VOLUME_UP');
+});
