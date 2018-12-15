@@ -175,6 +175,10 @@ github-from-package@0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/github-from-package/-/github-from-package-0.0.0.tgz#97fb5d96bfde8973313f20e8288ef9a167fa64ce"
 
+gpio@^0.2.10:
+  version "0.2.10"
+  resolved "https://registry.yarnpkg.com/gpio/-/gpio-0.2.10.tgz#ea2784f842d9c47298e227230a06cfec59dbc47e"
+
 has-unicode@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/has-unicode/-/has-unicode-2.0.1.tgz#e0e6fe6a28cf51138855e086d1691e771de2a8b9"
