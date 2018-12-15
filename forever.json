@@ -1,0 +1,7 @@
+{
+    "uid": "bonbu-remote",
+    "append": true,
+    "watch": false,
+    "script": "index.js",
+    "sourceDir": "/home/pi/bonbu-remote/"
+}
