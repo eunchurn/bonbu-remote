@@ -13,7 +13,7 @@ const listenerId = lirc_node.addListener((data) => {
 
 setInterval(() => {
     // console.log(`Sending ${data.key} to remote Bonbu`);
-    lirc_node.irsend.send_once('bonbu-remote', KEY_POWER, () => {
+    lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
         console.log("Sent bonbu-remote power command!");
     });
 },2000)
