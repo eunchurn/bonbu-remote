@@ -11,13 +11,16 @@ app.get('/', function (req, res) {
 
 app.get('/airconon', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
+        console.log('power on')
         res.send('on');
+
     })
 });
 
 app.get('/airconoff', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
-        res.send('on');
+        console.log('power off')
+        res.send('off');
     })
 });
 
