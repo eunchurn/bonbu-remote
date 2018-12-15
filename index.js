@@ -1,4 +1,4 @@
-const nideLIRC = require('node-lirc');
+const nodeLIRC = require('node-lirc');
 
 nodeLIRC.init();
 
