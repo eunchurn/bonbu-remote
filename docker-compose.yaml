@@ -3,10 +3,28 @@ services:
   homebridge:
     image: oznu/homebridge:raspberry-pi  # use "raspberry-pi" instead of "latest" for arm devices
     restart: always
-    network_mode: host
+    network_mode: ${NETWORK_MODE}
     environment:
       - TZ=Asia/Seoul
       - PGID=1000
       - PUID=1000
+      - HOMEBRIDGE_CONFIG_UI=1
+      - HOMEBRIDGE_CONFIG_UI_PORT=8081
     volumes:
       - .:/homebridge
+  api:
+    image: node:11.4.0
+    user: node
+    working_dir: ${NODE_WORKDIR}
+    environment:
+      - NODE_ENV=${NODE_ENV}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      volumes:
+        - ./:${NODE_WORKDIR}
+      expose:
+        - 8080
+      command: yarn start
+      network_mode: ${NETWORK_MODE}
+

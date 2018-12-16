@@ -9,7 +9,7 @@ app.get('/', function (req, res) {
     res.send('hello Bonbu deZentral');
 });
 
-app.get('/airconon', (req, res) => {
+app.get('/api/switchOn', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
         console.log('power on')
         res.send('on');
@@ -17,12 +17,18 @@ app.get('/airconon', (req, res) => {
     })
 });
 
-app.get('/airconoff', (req, res) => {
+app.get('/api/switchOff', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
         console.log('power off')
         res.send('off');
     })
 });
+
+app.get('/api/switchStatus', (req, res) => {
+    const response = {power: true}
+    res.send(response);
+})
+
 
 app.listen(8080);
 

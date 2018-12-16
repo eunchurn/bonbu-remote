@@ -11,33 +11,16 @@
 
     "platforms": [],
     "accessories": [{
-            "accessory": "Http",
-            "name": "Air-conditioner",
-            "switchHandling": "realtime",
-            "http_method": "GET",
-            "caption": "Stand",
+                "accessories": [{
+                    "accessory": "HTTP-SWITCH",
+                    "name": "Switch",
 
-            "on_url": "http://192.168.0.149:8080/airconon",
-            "off_url": "http://192.168.0.149:8080/ariconoff",
-            "status_url": "",
-            "service": "Switch",
-            "brightnessHandling": "no",
-            "brightness_url": "",
-            "brightnesslvl_url": "",
-            "username": "",
-            "password": ""
-        },
-        {
-            "accessory": "Http",
-            "name": "MainDoor",
+                    "switchType": "stateful",
 
-            "switchHandling": "realtime",
-            "http_method": "GET",
-            "caption": "Maindoor",
+                    "onUrl": "http://localhost:8080/api/switchOn",
+                    "offUrl": "http://localhost:8080/api/switchOff",
 
-            "on_url": "LOCALIPADDRESS:PORT/?HIGH",
-            "off_url": "LOCALIPADDRESS:PORT/?LOW",
-            "status_url": ""
-        }
-    ]
+                    "statusUrl": "http://localhost:8080/api/switchStatus"
+                }]
+    }]
 }
