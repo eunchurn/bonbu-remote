@@ -1,0 +1,12 @@
+version: '2'
+services:
+  homebridge:
+    image: oznu/homebridge:raspberry-pi  # use "raspberry-pi" instead of "latest" for arm devices
+    restart: always
+    network_mode: host
+    environment:
+      - TZ=Asia/Seoul
+      - PGID=1000
+      - PUID=1000
+    volumes:
+      - ./volumes/homebridge:/homebridge
