@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   homebridge:
     image: oznu/homebridge:raspberry-pi  # use "raspberry-pi" instead of "latest" for arm devices
@@ -27,4 +27,3 @@ services:
       - 8080
     command: yarn start
     network_mode: host
-
