@@ -9,7 +9,14 @@
 
     "description": "Bonbu_deZentral Automation Service",
 
-    "platforms": [],
+    "platforms": [
+        {
+          "platform": "config",
+          "name": "Config",
+          "port": 8081,
+          "sudo": false
+        }
+    ],
     "accessories": [{
         "accessory": "HTTP-SWITCH",
         "name": "Switch",
