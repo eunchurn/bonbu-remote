@@ -21,8 +21,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    devices:
+      - /dev/lirc0:/dev/lirc0
     volumes:
       - ./:${NODE_WORKDIR}
+      - /dev/lirc0:/dev/lirc0
     expose:
       - 8080
     command: yarn start
