@@ -7,6 +7,7 @@
   "author": "Eunchurn Park <eunchurn.park@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "express": "^4.16.4",
     "gpio": "^0.2.10",
     "lirc_node": "^0.0.4"
   },
