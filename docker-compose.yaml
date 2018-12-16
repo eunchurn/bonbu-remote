@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 services:
   homebridge:
     image: oznu/homebridge:raspberry-pi  # use "raspberry-pi" instead of "latest" for arm devices
