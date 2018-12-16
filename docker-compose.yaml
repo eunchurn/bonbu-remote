@@ -11,7 +11,7 @@ services:
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8081
     volumes:
-      - .:/homebridge
+      - ./homebridge:/homebridge
   api:
     image: node:11.4.0
     user: node
