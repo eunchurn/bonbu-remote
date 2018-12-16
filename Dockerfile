@@ -15,8 +15,8 @@ COPY package.json /home/node/app/package.json
 
 # install server
 
-RUN yarn install
-RUN yarn install --dev
+RUN npm install
+# RUN npm install --dev
 
 # install client
 # WORKDIR /home/node/app/client
