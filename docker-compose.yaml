@@ -21,10 +21,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      volumes:
-        - ./:${NODE_WORKDIR}
-      expose:
-        - 8080
-      command: yarn start
-      network_mode: host
+    volumes:
+      - ./:${NODE_WORKDIR}
+    expose:
+      - 8080
+    command: yarn start
+    network_mode: host
 
