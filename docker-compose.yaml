@@ -13,6 +13,20 @@ services:
       - HOMEBRIDGE_CONFIG_UI_PORT=8081
     volumes:
       - ./homebridge:/homebridge
+  redis:
+      container_name: pi-redis
+      image: redis
+      expose:
+          - ${REDIS_PORT}
+      volumes:
+          - ${REDIS_LOCAL_DATA_DIR}:${REDIS_DATA_DIR}
+      entrypoint: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD} # Redis 비밀번호
+      restart: always
+      network_mode: ${NETWORK_MODE}
+  redis-cli:
+      image: redis
+      command: redis-cli -h ${NETWORK} -a ${REDIS_PASSWORD} # Redis 비밀번호
+      network_mode: ${NETWORK_MODE}
   # api:
   #   image: node:11.4.0
   #   user: node
