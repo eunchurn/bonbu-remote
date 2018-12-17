@@ -1,31 +1,27 @@
 {
     "bridge": {
-
         "name": "Bonbu",
         "username": "B8:27:EB:86:46:4E",
         "port": 51826,
         "pin": "031-45-154"
     },
-
     "description": "Bonbu_deZentral Automation Service",
-
     "platforms": [
         {
-          "platform": "config",
-          "name": "Config",
-          "port": 8081,
-          "sudo": false
+            "platform": "config",
+            "name": "Config",
+            "port": 8081,
+            "sudo": false
         }
     ],
-    "accessories": [{
-        "accessory": "HTTP-SWITCH",
-        "name": "Switch",
-
-        "switchType": "stateful",
-
-        "onUrl": "http://localhost:8080/api/switchOn",
-        "offUrl": "http://localhost:8080/api/switchOff",
-
-        "statusUrl": "http://localhost:8080/api/switchStatus"
-    }]
+    "accessories": [
+        {
+            "accessory": "HTTP-SWITCH",
+            "name": "Air-conditioner Switch",
+            "switchType": "stateful",
+            "onUrl": "http://localhost:8080/api/switchOn",
+            "offUrl": "http://localhost:8080/api/switchOff",
+            "statusUrl": "http://localhost:8080/api/switchStatus"
+        }
+    ]
 }
