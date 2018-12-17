@@ -1,6 +1,16 @@
 const lirc_node = require('lirc_node')
 const express = require('express');
 const app = express();
+const redis = require('redis');
+require('dotenv').load({
+    path: '.env'
+});
+const chalk = require('chalk');
+client = redis.createClient({
+    host: process.env.REDIS_HOST,
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD
+});
 
 lirc_node.init();
 console.log(lirc_node.remotes);
@@ -11,7 +21,9 @@ app.get('/', function (req, res) {
 
 app.get('/api/switchOn', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
-        console.log('power on')
+        console.log(`${(new Date()).toISOString()}  | ${chalk.green('✓')} switch ON`);
+        client.set('update', (new Date()).getTime());
+        client.set('power', 1);
         res.send('on');
 
     })
@@ -19,14 +31,17 @@ app.get('/api/switchOn', (req, res) => {
 
 app.get('/api/switchOff', (req, res) => {
     lirc_node.irsend.send_once('bonbu-remote', 'KEY_POWER', () => {
-        console.log('power off')
+        console.log(`${(new Date()).toISOString()}  | ${chalk.red('✗')} switch OFF`)
+        client.set('update', (new Date()).getTime());
+        client.set('power', 0);
         res.send('off');
     })
 });
 
 app.get('/api/switchStatus', (req, res) => {
-    const response = {power: true}
-    res.send(response);
+    client.get('power', (err, reply) => {
+        res.send(reply)
+    })
 })
 
 

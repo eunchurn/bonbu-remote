@@ -18,9 +18,10 @@
         {
             "accessory": "HTTP-SWITCH",
             "name": "Air-conditioner Switch",
-            "switchType": "toggle",
+            "switchType": "stateful",
             "onUrl": "http://localhost:8080/api/switchOn",
-            "offUrl": "http://localhost:8080/api/switchOff"
+            "offUrl": "http://localhost:8080/api/switchOff",
+            "statusUrl": "http://localhost:8080/api/switchStatus"
         }
     ]
 }
